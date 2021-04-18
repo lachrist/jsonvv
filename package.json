@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "acorn": "^8.1.1",
+    "escodegen": "^2.0.0"
+  },
+  "devDependencies": {
+    "c8": "^7.7.1"
+  },
+  "scripts": {
+    "testCompile": "npx c8 --reporter=html --include lib/compile.mjs node test/compile.mjs && open coverage/index.html"
+  }
+}
