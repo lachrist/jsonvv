@@ -3,15 +3,16 @@ Program = {
   source: "script",
   body: [
     {
-      type: "VariableDeclaration",
-      kind: "const",
-      declarations: [
-        {
-          type: "VariableDeclaration",
-          id: Identifier,
-          init: Expression
-        }
-      ]
+      type: "ExpressionStatement",
+      expression: {
+        type: "AssignmentExpression",
+        operator: "=",
+        left: {
+          type: "Identifier",
+          name: String
+        },
+        right: Expression,
+      },
     }
   ]
 };
@@ -21,7 +22,19 @@ Expression = (
     type: "Identifier",
     name: String,
   },
-  Predicate,
+  {
+    type: "ArrowFunctionExpression",
+    async: false,
+    generator: false,
+    params: [
+      {
+        type: "Identifier",
+        name: "x"
+      }
+    ],
+    expression: true,
+    body: Predicate
+  },
   {
     type: "Literal",
     regex: {
@@ -58,7 +71,7 @@ Expression = (
           {
             type: "Literal",
             value: String,
-          },
+          }
         ),
         value: (
           {
@@ -66,7 +79,7 @@ Expression = (
             operator: "~",
             argument: Expression,
           },
-          Expression,
+          Expression
         ),
       }
     )
@@ -83,9 +96,9 @@ Expression = (
         operator: "~",
         argument: Expression,
       },
-      Expression,
+      Expression
     ),
-  },
+  }
 );
 
 Elementary = (
@@ -127,5 +140,5 @@ Predicate = (
     type: "UnaryExpression",
     operator: "!",
     argument: Elementary
-  },
+  }
 );

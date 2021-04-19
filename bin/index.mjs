@@ -3,7 +3,7 @@
 import * as FileSystem from "fs";
 import { parse as acorn } from "acorn";
 import { generate as escodegen } from "escodegen";
-import checkSyntax from "../lib/check-syntax.mjs";
+// import checkSyntax from "../lib/check-syntax.mjs";
 import compile from "../lib/compile.mjs";
 
 const node = acorn(
@@ -14,7 +14,7 @@ const node = acorn(
   }
 );
 
-checkSyntax(node);
+// checkSyntax(node);
 
 FileSystem.writeFileSync(
   process.argv[3],
